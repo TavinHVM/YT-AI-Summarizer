@@ -4,36 +4,37 @@
     <meta charset="UTF-8">
     <title>AI Summarizer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-[#202123] min-h-screen flex items-center justify-center p-6"
-    style="font-family: sans-serif">
-    <div class="bg-[#2a2b2e] rounded-2xl shadow-lg p-8 w-full max-w-3xl">
-        <h1 class="text-3xl font-bold mb-6 text-center text-[#ececec]">
+<body class="bg-[#1a1b1e] min-h-screen flex items-center justify-center p-6 antialiased"
+    style="font-family: 'Inter', sans-serif">
+    <div class="bg-[#242528] rounded-2xl shadow-lg p-8 w-full max-w-3xl">
+        <h1 class="text-3xl font-bold mb-6 text-center text-[#fcf7e8]">
             🎥 Youtube video AI Summarizer
         </h1>
         <form method="POST" class="space-y-4">
-            <label for="url" class="block text-lg font-medium text-[#ececec]">Paste the video URL:</label>
+            <label for="url" class="block text-lg font-medium text-[#fcf7e8]">Paste the video URL:</label>
             <input type="text" name="url"
-                class="w-full bg-[#1e1e1e] border border-[#3f3f46] rounded-lg p-3 text-[#ececec] placeholder-[#525252] focus:outline-none focus:ring-2 focus:ring-[#10a37f]"
+                class="w-full bg-[#1e1e1e] border border-[#3f3f46] rounded-lg p-3 text-[#fcf7e8] placeholder-[#5c5c5c] focus:outline-none focus:ring-2 focus:ring-[#76946a]"
                 placeholder="https://www.youtube.com/watch?v=..." required>
             <button type="submit"
-                class="w-full bg-[#10a37f] text-white font-semibold py-3 rounded-lg hover:bg-[#0e8e6f] transition">
+                class="w-full bg-[#76946a] text-[#1a1b1e] font-semibold py-3 rounded-lg hover:bg-[#98bb6c] transition">
                 Summarize
             </button>
         </form>
 
         {% if summary %}
         <div class="mt-8">
-            <h2 class="text-xl font-semibold text-[#ececec] mb-2">📝 Summary:</h2>
+            <h2 class="text-xl font-semibold text-[#fcf7e8] mb-2">📝 Summary:</h2>
             <textarea readonly
-                class="w-full h-64 bg-[#1e1e1e] border border-[#3f3f46] rounded-lg p-4 resize-none text-[#ececec]">
+                class="w-full h-64 bg-[#1e1e1e] border border-[#3f3f46] rounded-lg p-4 resize-none text-[#fcf7e8]">
                 {{ summary }}
             </textarea>
         </div>
         {% endif %}
 
         {% if error %}
-        <div class="mt-4 text-red-500 font-medium">
+        <div class="mt-4 text-red-400 font-medium">
             {{ error }}
         </div>
         {% endif %}
