@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Summarizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#202123] min-h-screen flex items-center justify-center p-6"
+    style="font-family: sans-serif">
+    <div class="bg-[#2a2b2e] rounded-2xl shadow-lg p-8 w-full max-w-3xl">
+        <h1 class="text-3xl font-bold mb-6 text-center text-[#ececec]">
+            🎥 Youtube video AI Summarizer
+        </h1>
+        <form method="POST" class="space-y-4">
+            <label for="url" class="block text-lg font-medium text-[#ececec]">Paste the video URL:</label>
+            <input type="text" name="url"
+                class="w-full bg-[#1e1e1e] border border-[#3f3f46] rounded-lg p-3 text-[#ececec] placeholder-[#525252] focus:outline-none focus:ring-2 focus:ring-[#10a37f]"
+                placeholder="https://www.youtube.com/watch?v=..." required>
+            <button type="submit"
+                class="w-full bg-[#10a37f] text-white font-semibold py-3 rounded-lg hover:bg-[#0e8e6f] transition">
+                Summarize
+            </button>
+        </form>
+
+        {% if summary %}
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold text-[#ececec] mb-2">📝 Summary:</h2>
+            <textarea readonly
+                class="w-full h-64 bg-[#1e1e1e] border border-[#3f3f46] rounded-lg p-4 resize-none text-[#ececec]">
+                {{ summary }}
+            </textarea>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="mt-4 text-red-500 font-medium">
+            {{ error }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
